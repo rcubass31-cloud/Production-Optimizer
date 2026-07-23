@@ -839,10 +839,6 @@ with tab4:
 
 
 st.markdown("---")
-st.markdown(
-    unsafe_allow_html=True,
-)
-
 
 # ============================================================================
 #  H)  ARCHIVOS DE DESPLIEGUE (Streamlit Community Cloud)
