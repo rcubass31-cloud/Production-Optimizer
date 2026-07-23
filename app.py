@@ -11,8 +11,6 @@
        Vista 2 : Capacity Utilization
        Vista 3 : Métricas OS + tablas por centro de proceso
        Vista 4 : Cycle Time Analysis (descomposición RPT/QT/BT/MT/SDT)
- · El motor analítico y la simulación DES (SimPy) son IDÉNTICOS al script
-   de escritorio validado: no se ha modificado una sola línea de cálculo.
 
  Ejecución local :  streamlit run app.py
  Requisitos      :  streamlit, numpy, pandas, simpy, matplotlib
@@ -32,7 +30,7 @@ from matplotlib.figure import Figure
 
 
 # ============================================================================
-#  A)  MOTOR ANALÍTICO Y DE SIMULACIÓN  (idéntico al script validado)
+#  A)  MOTOR ANALÍTICO Y DE SIMULACIÓN
 # ============================================================================
 NOMBRES_CORTOS = ["Perforación", "Colocación acero", "Inyección lechada"]
 
@@ -842,8 +840,6 @@ with tab4:
 
 st.markdown("---")
 st.markdown(
-    "<div class='po-note'>Motor analítico y de simulación idéntico al ejecutable de "
-    "escritorio validado (production_v13). Marco teórico: Hopp &amp; Spearman, "
     "<i>Factory Physics</i>; descomposición del Cycle Time.</div>",
     unsafe_allow_html=True,
 )
