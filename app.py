@@ -840,7 +840,6 @@ with tab4:
 
 st.markdown("---")
 st.markdown(
-    "<i>Factory Physics</i>; descomposición del Cycle Time.</div>",
     unsafe_allow_html=True,
 )
 
