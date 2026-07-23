@@ -2,7 +2,7 @@
 """
 ============================================================================
  PRODUCTION OPTIMIZER — Soil Nailing / Pernos de Anclaje
- Factory Physics (Hopp & Spearman) · estándar SPS
+ Factory Physics (Hopp & Spearman)
  Interfaz web: Streamlit  (migración 1:1 desde production_v13.py / Tkinter)
 ----------------------------------------------------------------------------
  · Barra lateral : panel de control (parámetros por estación + flujo global)
@@ -128,7 +128,6 @@ def calcular_qt_analitico_conwip(procesos, rate_flow, scv_arrival):
 
 def calcular_bt_mt_sdt(procesos):
     """Batch Time (BT), Move Time (MT) y Shift Diff Time (SDT) por estación,
-    según el estándar SPS (Strategic Project Solutions):
         BT_i = ((K_i - 1) * Te_i) / 2.0        (tiempo de espera por lote)
     Los totales del sistema son la suma de cada componente por estación."""
     Te = np.array([p["Te"] for p in procesos], dtype=float)
@@ -265,7 +264,7 @@ PROC_DEFAULTS = [
 ]
 SCV_OPCIONES = ["0.5 (Baja)", "1.0 (Media/PWC)", "1.5 (Alta)"]
 
-# Batch / Move / Shift Diff por estación (estándar SPS): (K, MT, SDT)
+# Batch / Move / Shift Diff por estación: (K, MT, SDT)
 BATCH_DEFAULTS = [(1, 0.00, 0.00), (1, 0.00, 0.00), (1, 0.00, 0.00)]
 
 # Defaults globales
@@ -334,7 +333,7 @@ def leer_config_sidebar():
     sb = st.sidebar
     sb.markdown(f"<div class='po-title' style='font-size:1.05rem'>PANEL DE CONTROL</div>",
                 unsafe_allow_html=True)
-    sb.caption("Soil Nailing / Pernos de anclaje — Factory Physics · SPS")
+    sb.caption("Soil Nailing / Pernos de anclaje — Factory Physics")
 
     procesos = []
     for i, (nombre_largo, te_d, m_d, scv_d) in enumerate(PROC_DEFAULTS):
@@ -499,7 +498,7 @@ def fig_util(res):
 
 def fig_ct_percent(push):
     """Vista 4 — Barra horizontal apilada al 100 % (Percent of Cycle Time),
-    estándar SPS: descompone el CT simulado en RPT + QT + BT + MT + SDT."""
+    descompone el CT simulado en RPT + QT + BT + MT + SDT."""
     rpt = push["RPT_sim"]; qt = push["QT_total"]
     bt = push["BT_total"]; mt = push["MT_total"]; sdt = push["SDT_total"]
     ct_total = max(push["CT_push_total"], 1e-9)
@@ -604,7 +603,7 @@ st.markdown(
     "<div class='po-title'>Production Optimizer — Soil Nailing / Pernos de Anclaje</div>"
     "<div class='po-sub'>Análisis de sistemas de producción bajo Factory Physics "
     "(Hopp &amp; Spearman) con simulación de eventos discretos (SimPy) · "
-    "estándar de descomposición del Cycle Time SPS</div>",
+    "descomposición del Cycle Time</div>",
     unsafe_allow_html=True,
 )
 
@@ -845,7 +844,7 @@ st.markdown("---")
 st.markdown(
     "<div class='po-note'>Motor analítico y de simulación idéntico al ejecutable de "
     "escritorio validado (production_v13). Marco teórico: Hopp &amp; Spearman, "
-    "<i>Factory Physics</i>; descomposición del Cycle Time según el estándar SPS.</div>",
+    "<i>Factory Physics</i>; descomposición del Cycle Time.</div>",
     unsafe_allow_html=True,
 )
 
